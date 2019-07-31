@@ -49,7 +49,6 @@ class BigInteger {
                 mul = mul % 10;
                 result.val = (char)(mul + 48) + result.val;
             }
-            cout<<"test1  "<<result.val<<endl;
             return result;
         }
         BigInteger operator * (BigInteger b) {
