@@ -72,14 +72,47 @@ class BigInteger {
             }
             return result;
         }
+        bool operator < (BigInteger b)  {
+            int vl = val.length();
+            int bl = b.val.length();
+            if (vl < bl) {
+                return true;
+            } else if (vl > bl) {
+                return false;
+            } else  {
+                for (int i = 0; i < vl; i++) {
+                    if (val[i] > b.val[i])
+                        return false;
+                }
+                return true;
+            }
+        }
+        bool operator > (BigInteger b) {
+            int vl = val.length();
+            int bl = b.val.length();
+            if (vl > bl) {
+                return true;
+            } else if (vl < bl) {
+                return false;
+            } else  {
+                for (int i = 0; i < vl; i++) {
+                    if (val[i] < b.val[i])
+                        return false;
+                }
+                return true;
+            }
+
+        }
+        bool operator <= (BigInteger b) {
+            return *this > b ? false : true; 
+        }
+        bool operator >= (BigInteger b) {
+            return *this < b ? false : true;
+        }
 };
 
 int main(void) {
-    BigInteger b1("46464646464646464646464646464646468972215");
-    BigInteger b2("8916548465198417798951518455151545515184845");
-    BigInteger z("12");
-    BigInteger b3 = z + z;
-    BigInteger b4 = z * z;
-    cout<<b3.val<<endl;
-    cout<<b4.val<<endl;
+    BigInteger b1("456");
+    BigInteger b2("2341");
+    cout<<(b1<=b2);
 }
